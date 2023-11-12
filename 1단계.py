@@ -115,28 +115,178 @@
 
 #자동화 프로그램 만들기.
 
-from bs4 import BeautifulSoup
-import googletrans
+# from bs4 import BeautifulSoup
+# import googletrans
+# import requests
+# import json
+
+
+# url = 'https://www.gutenberg.org/cache/epub/84/pg84.txt'
+# html = requests.get(url)
+# soup = BeautifulSoup(html.text , 'html.parser')
+# # script_tag = content.find_all(['script', 'style', 'header', 'footer', 'form'])
+# # #태그 제거
+# # for script in script_tag:
+# #     script.extract()
+
+# content = soup.get_text('\n ' , strip=True) #strip=True는 공백제거 및 개행제거
+
+# content1 = list(content)
+# content2 = content1.split(maxsplit=5000)
+# print(content2)
+
+
+
+# # transltor = googletrans.Translator()
+# # result = transltor.translate(content1, dest = "ko")
+# # print(result.text)
+# print(2-3*4)
+        
+ 
 import requests
-import json
+from bs4 import BeautifulSoup
+
+url = 'https://kin.naver.com/search/list.nhn?query=%ED%8C%8C%EC%9D%B4%EC%8D%AC'
+
+res = requests.get(url)
+
+if res.status_code == 200:
+    html = res.text
+    soup = BeautifulSoup(html, 'html.parser')
+    ul = soup.select_one('ul.basic1')
+    titles = ul.select('li > dl > dt > a')
+
+    for title in titles:
+        print(title.get_text())
+
+else:
+    print(res.status_code)
 
 
-url = 'https://www.gutenberg.org/cache/epub/84/pg84.txt'
-html = requests.get(url)
-soup = BeautifulSoup(html.text , 'html.parser')
-# script_tag = content.find_all(['script', 'style', 'header', 'footer', 'form'])
-# #태그 제거
-# for script in script_tag:
-#     script.extract()
-
-content = soup.get_text('\n ' , strip=True) #strip=True는 공백제거 및 개행제거
-
-content1 = list(content)
-content2 = content1.split(maxsplit=5000)
-print(content2)
 
 
 
-# transltor = googletrans.Translator()
-# result = transltor.translate(content1, dest = "ko")
-# print(result.text)
+
+
+
+
+# titles = soup.find_all('a', attrs={'class': '_nclicks:kin.txt _searchListTitleAnchor'}) #해당태그에 해당되는 모든태그들을 뽑아냄
+
+
+# # for title in titles:
+# #     print(title.get_text()) 
+
+
+# # print(soup.prettify()) #HTML 구조 확인
+
+# url = 'https://finance.naver.com/sise/'
+
+# res = requests.get(url)
+
+# if res.status_code==200:  
+#     html = res.text
+#     soup = BeautifulSoup(html, 'html.parser')
+#     block = soup.select_one('#contentarea > div.box_top_submain2 > div.rgt')
+#     print(block.text)
+# else:
+#     print(res.status_code)
+
+
+
+###1주차 스터디
+# from bs4 import BeautifulSoup
+# import requests
+
+
+
+
+# # tag ="<p class='youngone' id='junu'> Hello World! </p>"
+# # soup = BeautifulSoup(tag)# 태그 이름만 특정
+# # print(soup.find('p'))# 태그 속성만 특정
+# # print(soup.find(class_='youngone'))
+# # print(soup.find(attrs = {'class':'youngone'}))# 태그 이름과 속성 모두 특정
+# # print(soup.find('p', class_='youngone'))
+
+
+# # tag = "<p class='youngone' id='junu'> Hello World! </p>"
+# # soup = BeautifulSoup(tag) 
+# # object_tag = soup.find('p')
+
+# # #태그의 이름
+# # print(object_tag.name)
+# # #결과: 'p'
+
+# #태그에 담긴 텍스트
+# # print(object_tag.text)
+# #결과: ' Hello World! '
+
+# # #태그의 속성과 속성값
+# # print(object_tag.attrs)
+# # #결과: {'class': ['youngone'], 'id': 'junu'}
+
+
+
+
+# # url = 'https://search.naver.com/search.naver?where=kin&sm=tab_jum&query=%EC%82%AC%EA%B3%BC'
+# # response = requests.get(url)
+
+
+# # if response.status_code == 200:
+# #     html = response.text
+# #     soup = BeautifulSoup(html,'html.parser')
+# #     titles = soup.select('#main_pack > section.sc_new.sp_nkin._fe_kin_collection > div.api_subject_bx > ul > li > div > div.question_area > div > a')
+# #     for title in titles:
+# #         print(title.get_text())
+
+    
+
+# # else: 
+# #     print(response.status_code)
+
+##2주차
+# import requests
+# import json 
+
+# def create_post(title, body , user_id):
+#     url ='https://jsonplaceholder.typicode.com/posts'
+#     header = {'Content-type':'application/json; charset=UTF-8'}
+#     data = {
+#         'title' : title,
+#         'body' : body,
+#         'userid' : user_id
+#     }
+#     res = requests.post(url , headers=header , data=json.dumps(data))
+
+#     if res.status_code ==201:
+#         post_data = res.json()
+#         print(f"PostId : {post_data['id']}")
+#         print(f"PostTitle : {post_data['title']}")
+#         print(f"postBody : {post_data['body']}")
+#     else:
+#         print("게시물을 생성할 수 없습니다.")
+
+# create_post('저녁메뉴', '짜장면' , 1)
+
+
+# def get_user_info(user_id):
+#     res = requests.get(f'https://jsonplaceholder.typicode.com/users/{user_id}')
+    
+#     if res.status_code==200:
+#         user_data = res.json()
+#         print(f"User Id: {user_data['id']}")
+#         print(f"User Name: {user_data['name']}")
+#         print(f"User Email: {user_data['email']}")
+#         print(f"User address: {user_data['address']}")
+#         print(f"User phone: {user_data['phone']}")
+#     else:
+#         print("유저 정보를 불러올수없다.")
+
+# get_user_info(1)
+
+
+
+
+
+
+
+
