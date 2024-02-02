@@ -18,8 +18,7 @@ Django 개발 환경 설정: 가상환경 설정, Django 설치, 프로젝트 �
 | 6주차 | 
 Django의 디자인패턴 이해 및 프로젝트 생성
 Django 모델 정의 및 view와 Templete 연동 |
-| 7주차 | 
-Pylog 프로젝트
+| 7주차 | Pylog
 Django에서 1:N에 대한 모델 정의 및 글과 댓글 보여주기 구현 
 글 상세 페이지 , 글/댓글 작성 view 구현 및 CSS적용 |
 | 8주차 | Pystagram
