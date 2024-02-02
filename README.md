@@ -2,7 +2,7 @@
 ![파이썬과 40개 작품들](https://github.com/minseong0213/SeedsFirstStep/assets/103939333/512efe61-cc39-4232-ba9d-159c2fc96cc5) ![이한영의 django](https://github.com/minseong0213/SeedsFirstStep/assets/103939333/11f7992e-4ae7-4731-b374-6892dbd09337)
 
 #### 1주차 ~ 12주차까지 본 내용을 가지고 진행하였습니다.
-|  | 프로젝트 |
+| 내용 | 프로젝트 |
 | --- | --- |
 | 1주차 | 
 Beautiful Soup 라이브러리를 활용하여 웹사이트에서 필요한 정보 추출하기 |
