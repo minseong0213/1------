@@ -30,4 +30,5 @@ Django 인증 시스템 이해 및 구현 |
 해시 태그 및 글 상세 페이지 view 구현 |
 | 11주차 | Pystagram
 좋아요 기능 및 팔로우/팔로잉 기능 구현 |
-| 12주차 | NEXT project planing |
+| 12주차 | 
+Next Project Planning |
